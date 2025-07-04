@@ -27,35 +27,45 @@ AI-powered video-to-audio and text-to-audio generation using MMAudio's advanced 
 ### Installation
 
 1. **Clone or download this extension**:
+
    ```bash
    cd mcp
    npm install
    ```
 
 2. **Configure your API key**:
+
    ```bash
    # Set environment variable
    export MMAUDIO_API_KEY="sk-your-api-key-here"
-   
+
    # Or create a config.js file (copy from config.example.js)
    cp config.example.js config.js
    # Edit config.js with your API key
    ```
 
 3. **Test the installation**:
+
    ```bash
    npm start
    ```
 
+4. **Link the package**:
+
+    ```bash
+    npm link
+    ```
+
 ### Usage with Cursor
 
 1. **Add to your Cursor MCP configuration**:
+
    ```json
    {
      "mcpServers": {
        "mmaudio": {
-         "command": "node",
-         "args": ["path/to/mcp/server/index.js"],
+         "command": "npx",
+         "args": ["-y", "mmaudio-mcp"],
          "env": {
            "MMAUDIO_API_KEY": "sk-your-api-key-here"
          }
@@ -69,12 +79,13 @@ AI-powered video-to-audio and text-to-audio generation using MMAudio's advanced 
 ### Usage with Claude Desktop
 
 1. **Add to your Claude Desktop configuration** (`claude_desktop_config.json`):
+
    ```json
    {
      "mcpServers": {
        "mmaudio": {
-         "command": "node",
-         "args": ["path/to/mcp/server/index.js"],
+         "command": "npx",
+         "args": ["-y", "mmaudio-mcp"],
          "env": {
            "MMAUDIO_API_KEY": "sk-your-api-key-here"
          }
@@ -94,6 +105,7 @@ Generate AI-powered audio from video content.
 **Tool Name**: `video_to_audio`
 
 **Parameters**:
+
 - `video_url` (required): URL of the video file
 - `prompt` (required): Description of the audio you want to generate
 - `negative_prompt` (optional): What to avoid in the generated audio
@@ -103,6 +115,7 @@ Generate AI-powered audio from video content.
 - `seed` (optional): Random seed for reproducible results
 
 **Example**:
+
 ```
 Generate audio for this video: https://example.com/video.mp4 with the prompt "peaceful forest sounds with birds chirping and gentle wind"
 ```
@@ -114,6 +127,7 @@ Create audio content from text descriptions.
 **Tool Name**: `text_to_audio`
 
 **Parameters**:
+
 - `prompt` (required): Description of the audio you want to generate
 - `duration` (optional): Audio duration in seconds (1-30, default: 8)
 - `num_steps` (optional): Number of inference steps (1-50, default: 25)
@@ -122,6 +136,7 @@ Create audio content from text descriptions.
 - `seed` (optional): Random seed for reproducible results
 
 **Example**:
+
 ```
 Create audio with the description "coffee shop ambiance with gentle chatter and espresso machine sounds"
 ```
@@ -133,9 +148,11 @@ Validate your MMAudio API key and check account status.
 **Tool Name**: `validate_api_key`
 
 **Parameters**:
+
 - `api_key` (optional): API key to validate (uses configured key if not provided)
 
 **Example**:
+
 ```
 Validate my MMAudio API key
 ```
@@ -144,13 +161,13 @@ Validate my MMAudio API key
 
 ### Environment Variables
 
-| Variable | Description | Required | Default |
-|----------|-------------|----------|---------|
-| `MMAUDIO_API_KEY` | Your MMAudio API key | Yes | - |
-| `MMAUDIO_BASE_URL` | Base URL for MMAudio API | No | `https://mmaudio.net` |
-| `MMAUDIO_TIMEOUT` | Request timeout in milliseconds | No | `60000` |
-| `LOG_LEVEL` | Log level (error, warn, info, debug) | No | `error` |
-| `DEBUG` | Enable debug mode | No | `false` |
+| Variable           | Description                          | Required | Default               |
+| ------------------ | ------------------------------------ | -------- | --------------------- |
+| `MMAUDIO_API_KEY`  | Your MMAudio API key                 | Yes      | -                     |
+| `MMAUDIO_BASE_URL` | Base URL for MMAudio API             | No       | `https://mmaudio.net` |
+| `MMAUDIO_TIMEOUT`  | Request timeout in milliseconds      | No       | `60000`               |
+| `LOG_LEVEL`        | Log level (error, warn, info, debug) | No       | `error`               |
+| `DEBUG`            | Enable debug mode                    | No       | `false`               |
 
 ### Configuration File
 
@@ -158,8 +175,8 @@ You can also use a `config.js` file for configuration:
 
 ```javascript
 export const config = {
-  apiKey: 'sk-your-api-key-here',
-  baseUrl: 'https://mmaudio.net',
+  apiKey: "sk-your-api-key-here",
+  baseUrl: "https://mmaudio.net",
   timeout: 60000,
   // ... other options
 };
@@ -171,22 +188,22 @@ export const config = {
 
 ```javascript
 // In your MCP client (Cursor, Claude Desktop, etc.)
-"Please generate audio for this video URL: https://example.com/nature_video.mp4"
-"I want forest sounds with birds chirping and a gentle breeze"
-"Duration should be 10 seconds"
+"Please generate audio for this video URL: https://example.com/nature_video.mp4";
+"I want forest sounds with birds chirping and a gentle breeze";
+"Duration should be 10 seconds";
 ```
 
 ### Text-to-Audio Example
 
 ```javascript
 // Create ambient audio
-"Generate 15 seconds of coffee shop ambiance with gentle background chatter"
+"Generate 15 seconds of coffee shop ambiance with gentle background chatter";
 
 // Create sound effects
-"Create the sound of rain falling on a wooden roof for 8 seconds"
+"Create the sound of rain falling on a wooden roof for 8 seconds";
 
 // Create atmospheric audio
-"Generate futuristic sci-fi ambient sounds for a space station"
+"Generate futuristic sci-fi ambient sounds for a space station";
 ```
 
 ## 🔧 Development
@@ -206,11 +223,13 @@ mcp/
 ### Testing
 
 1. **Test the server directly**:
+
    ```bash
    npm start
    ```
 
 2. **Test with a simple MCP client**:
+
    ```bash
    echo '{"jsonrpc": "2.0", "method": "tools/list", "id": 1}' | npm start
    ```
@@ -239,6 +258,7 @@ This enables additional logging and the Node.js inspector for debugging.
 **Problem**: The extension can't find your API key.
 
 **Solution**:
+
 - Ensure you've set the `MMAUDIO_API_KEY` environment variable
 - Or create a `config.js` file with your API key
 - Verify the API key is correct and active
@@ -248,6 +268,7 @@ This enables additional logging and the Node.js inspector for debugging.
 **Problem**: Can't connect to MMAudio API.
 
 **Solution**:
+
 - Check your internet connection
 - Verify the base URL is correct
 - Check if there are any firewall restrictions
@@ -257,6 +278,7 @@ This enables additional logging and the Node.js inspector for debugging.
 **Problem**: Your MMAudio account doesn't have enough credits.
 
 **Solution**:
+
 - Check your account balance at [mmaudio.net/dashboard](https://mmaudio.net/dashboard)
 - Purchase additional credits if needed
 - Use the `validate_api_key` tool to check your account status
@@ -266,6 +288,7 @@ This enables additional logging and the Node.js inspector for debugging.
 **Problem**: Your MCP client (Cursor, Claude Desktop) doesn't show MMAudio tools.
 
 **Solution**:
+
 - Verify the configuration path in your MCP client settings
 - Ensure Node.js is in your PATH
 - Check the server logs for errors
@@ -365,4 +388,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Made with ❤️ by the MMAudio Team** 
+**Made with ❤️ by the MMAudio Team**
