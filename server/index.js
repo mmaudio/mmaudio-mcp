@@ -73,7 +73,7 @@ class MMAudioServer {
   constructor() {
     this.server = new Server(
       {
-        name: 'mmaudio-dxt',
+        name: 'mmaudio-mcp',
         version: '1.0.0',
       },
       {
@@ -282,7 +282,7 @@ class MMAudioServer {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${this.config.apiKey}`,
-          'User-Agent': 'MMAudio-DXT/1.0.0',
+          'User-Agent': 'MMAudio-MCP/1.0.0',
         },
         body: JSON.stringify(input),
         timeout: this.config.timeout,
@@ -361,7 +361,7 @@ class MMAudioServer {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${this.config.apiKey}`,
-          'User-Agent': 'MMAudio-DXT/1.0.0',
+          'User-Agent': 'MMAudio-MCP/1.0.0',
         },
         body: JSON.stringify(input),
         timeout: this.config.timeout,
@@ -442,7 +442,7 @@ class MMAudioServer {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${apiKey}`,
-          'User-Agent': 'MMAudio-DXT/1.0.0',
+          'User-Agent': 'MMAudio-MCP/1.0.0',
         },
         timeout: 10000,
       });
