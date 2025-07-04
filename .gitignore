@@ -50,9 +50,3 @@ config.js
 
 # Output of 'npm pack'
 *.tgz
-
-# Yarn Integrity file
-yarn.lock
-
-# Package lock file
-package-lock.json 
