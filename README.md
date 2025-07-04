@@ -361,7 +361,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - [MMAudio Support](mailto:support@mmaudio.net)
 - [GitHub Issues](https://github.com/mmaudio/mmaudio-mcp/issues)
-- [Documentation](https://mmaudio.net/docs)
+- [Documentation](https://mmaudio.net/dashboard/api-key)
 
 ---
 
