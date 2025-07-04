@@ -1,6 +1,6 @@
 {
   "name": "mmaudio-mcp",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "MMAudio Desktop Extension - AI-powered video-to-audio and text-to-audio generation",
   "main": "server/index.js",
   "type": "module",
@@ -57,5 +57,8 @@
     "LICENSE"
   ],
   "preferGlobal": false,
-  "private": false
+  "private": false,
+  "bin": {
+    "mmaudio-mcp": "server/index.js"
+  }
 } 
