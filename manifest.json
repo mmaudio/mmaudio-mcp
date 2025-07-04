@@ -1,0 +1,99 @@
+{
+  "name": "mmaudio-dxt",
+  "displayName": "MMAudio Desktop Extension",
+  "description": "AI-powered video-to-audio and text-to-audio generation using MMAudio API. Generate professional audio content with advanced AI technology.",
+  "version": "1.0.0",
+  "author": "MMAudio Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mmaudio/mmaudio-mcp"
+  },
+  "keywords": [
+    "ai",
+    "audio",
+    "video",
+    "text-to-audio",
+    "video-to-audio",
+    "mcp",
+    "mmaudio"
+  ],
+  "categories": [
+    "ai-tools",
+    "media",
+    "content-creation"
+  ],
+  "homepage": "https://mmaudio.net",
+  "documentation": "https://mmaudio.net/docs",
+  "support": "mailto:support@mmaudio.net",
+  "icon": "https://mmaudio.net/images/logo.png",
+  "screenshots": [
+    "https://mmaudio.net/images/mmaudio-tool.png"
+  ],
+  "capabilities": {
+    "tools": true,
+    "resources": false,
+    "prompts": false,
+    "sampling": false
+  },
+  "configuration": {
+    "apiKey": {
+      "type": "string",
+      "required": true,
+      "description": "MMAudio API key for authentication",
+      "label": "API Key",
+      "placeholder": "sk-...",
+      "secret": true
+    },
+    "baseUrl": {
+      "type": "string",
+      "required": false,
+      "description": "Base URL for MMAudio API (defaults to https://mmaudio.net)",
+      "label": "Base URL",
+      "default": "https://mmaudio.net"
+    },
+    "timeout": {
+      "type": "number",
+      "required": false,
+      "description": "Request timeout in milliseconds",
+      "label": "Timeout (ms)",
+      "default": 60000,
+      "minimum": 5000,
+      "maximum": 300000
+    }
+  },
+  "server": {
+    "type": "stdio",
+    "command": "node",
+    "args": ["server/index.js"],
+    "cwd": ".",
+    "env": {}
+  },
+  "permissions": {
+    "network": {
+      "hosts": [
+        "mmaudio.net",
+        "api.mmaudio.net",
+        "*.mmaudio.net"
+      ]
+    },
+    "filesystem": {
+      "read": true,
+      "write": false
+    }
+  },
+  "security": {
+    "sandbox": true,
+    "allowUnsafeEval": false,
+    "contentSecurityPolicy": "default-src 'self'; connect-src https://mmaudio.net https://api.mmaudio.net;"
+  },
+  "compatibility": {
+    "mcp": ">=1.0.0",
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --inspect server/index.js",
+    "test": "node test.js"
+  }
+} 
