@@ -93,7 +93,6 @@
   },
   "scripts": {
     "start": "node server/index.js",
-    "dev": "node --inspect server/index.js",
-    "test": "node test.js"
+    "dev": "node --inspect server/index.js"
   }
 } 

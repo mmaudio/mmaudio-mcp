@@ -216,8 +216,7 @@ mcp/
 ├── package.json           # Node.js dependencies and scripts
 ├── manifest.json          # DXT extension manifest
 ├── config.example.js      # Configuration example
-├── README.md              # This file
-└── test.js                # Test script (optional)
+└── README.md              # This file
 ```
 
 ### Testing
@@ -234,10 +233,6 @@ mcp/
    echo '{"jsonrpc": "2.0", "method": "tools/list", "id": 1}' | npm start
    ```
 
-3. **Run validation tests**:
-   ```bash
-   npm test
-   ```
 
 ### Development Mode
 

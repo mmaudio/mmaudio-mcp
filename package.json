@@ -10,7 +10,6 @@
   "scripts": {
     "start": "node server/index.js",
     "dev": "node --inspect server/index.js",
-    "test": "node test.js",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
