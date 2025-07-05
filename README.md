@@ -65,7 +65,7 @@ AI-powered video-to-audio and text-to-audio generation using MMAudio's advanced 
      "mcpServers": {
        "mmaudio": {
          "command": "npx",
-         "args": ["-y", "mmaudio-mcp"],
+         "args": ["-y", "mmaudio-mcp@latest"],
          "env": {
            "MMAUDIO_API_KEY": "sk-your-api-key-here"
          }
@@ -85,7 +85,7 @@ AI-powered video-to-audio and text-to-audio generation using MMAudio's advanced 
      "mcpServers": {
        "mmaudio": {
          "command": "npx",
-         "args": ["-y", "mmaudio-mcp"],
+         "args": ["-y", "mmaudio-mcp@latest"],
          "env": {
            "MMAUDIO_API_KEY": "sk-your-api-key-here"
          }
